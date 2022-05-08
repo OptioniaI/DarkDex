@@ -3415,3 +3415,13 @@ welcomePlayer()
 for i,v in pairs(nodes[workspace]) do
 	print(type(i))
 end
+
+local UIS = game:GetService("UserInputService")
+local DexFind = game:GetService("CoreGui").Dex
+
+UIS.InputBegan:Connect(function(inp,ge)
+    if ge then return end
+    if inp.KeyCode == Enum.KeyCode.RightControl then
+        DexFind.Enabled = not DexFind.Enabled
+    end
+end)
