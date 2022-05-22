@@ -8,6 +8,15 @@ local Services = setmetatable({},{
 	end
 })
 
+function randomString()
+	local length = math.random(10,20)
+	local array = {}
+	for i = 1, length do
+		array[i] = string.char(math.random(32, 126))
+	end
+	return table.concat(array)
+end
+
 function CreateInstance(cls,props)
 	local inst = Instance.new(cls)
 	for i,v in pairs(props) do
@@ -3426,13 +3435,6 @@ UIS.InputBegan:Connect(function(inp,ge)
     end
 end)
 
-function randomString()
-	local length = math.random(10,20)
-	local array = {}
-	for i = 1, length do
-		array[i] = string.char(math.random(32, 126))
-	end
-	return table.concat(array)
+while task.wait() do
+    DexFind.Name = randomString()
 end
-
-DexGui.Name = randomString .. "PureDex"
